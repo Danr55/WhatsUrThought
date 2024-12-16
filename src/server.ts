@@ -1,7 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
-import connectDB  from "./config/database";
-import userRoutes from "./routes/userRoutes";
+import connectDB  from "./config/database.js";
+import userRoutes from "./routes/userRoutes.js";
+import thoughtRoutes from "./routes/thoughtRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -16,5 +17,6 @@ connectDB();
 
 // Routes
 app.use("/api/users", userRoutes);
+app.use("/api/thoughts", thoughtRoutes);
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
